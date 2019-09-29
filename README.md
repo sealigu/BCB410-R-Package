@@ -1,2 +1,2 @@
-# R Package for Analysing Protein
-More focus on the ubiquitination, find out the protein-protein interactions and similar identity sequences.
+# R Package for Analysing Protein Focusing on Ubiquitination
+Find out the protein-protein interactions and similar identity sequences.
