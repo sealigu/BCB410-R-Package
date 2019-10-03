@@ -1,13 +1,21 @@
-# This .R file is used to analyze the indivudual ubiquitin protein
+# This .R file is used to analyze the ubiquitin proteins
 #
 # The first function is used to plot a graph that shows all the
-# interacted proteins with the two input proteins.
+# residue modification positons in the selected protein sequences.
+# Input two interested proteins, the plot will show the modified positon
+# for each selected protein and comparing to see whether these two proteins
+# have the same modified position
 #
-# The second function is used to calculate the difference between
+# The second function is used to plot a graph that shows all the
+# interacted proteins with the two input proteins. The output is
+# a graph to show all the interactors and comparing to see whether
+# they have the same interacting proteins.
+#
+# The third function is used to calculate the similarities between
 # two protein sequences with a percentage output.
 #
-#
-#
+# @param protein1 is the selected protein uniprot id, example "Q86Y01"
+# @param protein2 is the selected protein uniprot id, example "Q9NYG5"
 #
 #
 
@@ -19,31 +27,12 @@ library(stringr);
 library(scales);
 library(pheatmap);
 
-Q9UHB7_seq <- as.character(GetSequences("Q9UHB7")$Sequence);
-Q9UHB7_seq
-
-Q9UHB7inter <- as.character(GetProteinInteractions("Q9UHB7")$Interacts.with);
-Q9UHB7inter
-Q9UHB7sp <- strsplit(Q9UHB7inter, ";"); #create list
-Q9UHB7sp <- unlist(Q9UHB7sp);
-Q9UHB7sp
-
-Q9UKV5_seq <- as.character(GetSequences("Q9UKV5")$Sequence);
-Q9UKV5_seq
-
-Q9UKV5inter <- as.character(GetProteinInteractions("Q9UKV5")$Interacts.with);
-Q9UKV5inter
-Q9UKV5sp <- strsplit(Q9UKV5inter, ";");
-Q9UKV5sp <- unlist(Q9UKV5sp);
-Q9UKV5sp;
-
-Q9UHB7_PTM <- GetPTM_Processsing("Q9UHB7");
-as.character(Q9UHB7_PTM$Modified.residue);
-str_extract_all(Q9UHB7_PTM$Modified.residue, regex("\\d+\\s[A-Za-z]."));
-
-
 #################################################################
-# Example PlotResModification("Q9UHB", "Q9UKV5")
+# @examples
+# PlotResModification("Q9UHB7", "Q9UKV5")
+#
+# @return Returns a plot to show the protein modified position
+
 PlotResModification <- function(protein1, protein2) {
   pro1_r <- as.character(GetPTM_Processsing(protein1)$Modified.residue);
   pro1_res <- str_extract_all(pro1_r, regex("\\d+\\s[A-Za-z]."));
@@ -60,8 +49,10 @@ PlotResModification <- function(protein1, protein2) {
                          ncol = length(pro2_res),
                          dimnames = list(as.character(protein2), c(pro2_res)));
 
-  #https://stackoverflow.com/questions/5738773/r-how-to-merge-two-matrix-according-to-their-column-and-row-names
-  #According to above code to merge two matrix together
+  # https://stackoverflow.com/questions/5738773/r-how-to-merge-two-matrix-according-to-their-column-and-row-names
+  # According to above code to merge two matrix together
+  # and convert list to matrix
+
   tab <- merge(pro1_res_mat, pro2_res_mat, by = "row.names", all = TRUE);
   tab[is.na(tab)] <- 0;
 
@@ -72,11 +63,13 @@ PlotResModification <- function(protein1, protein2) {
   f <- pheatmap(df, scale = "none", col = col);
   return(f);
 }
-l <- PlotResModification("Q9UHB7", "Q9UKV5");
-l
 
 #################################################################
-# Example PlotProteinInteractions("Q9UHB7", "Q9UKV5")
+# @examples
+# PlotProteinInteractions("Q9UHB7", "Q9UKV5")
+#
+# @return Returns a plot to show all the protein interactors
+
 PlotProteinInteractions <- function(protein1, protein2) {
   pro1_obj <- as.character(GetProteinInteractions(protein1)$Interacts.with);
   pro2_obj <- as.character(GetProteinInteractions(protein2)$Interacts.with);
@@ -106,8 +99,9 @@ PlotProteinInteractions <- function(protein1, protein2) {
                      ncol = length(pro2_sp),
                      dimnames = list(as.character(protein2), c(pro2_sp)));
 
-  #https://stackoverflow.com/questions/5738773/r-how-to-merge-two-matrix-according-to-their-column-and-row-names
-  #According to above code to merge two matrix together
+  # https://stackoverflow.com/questions/5738773/r-how-to-merge-two-matrix-according-to-their-column-and-row-names
+  # According to above code to merge two matrix together
+  # and convert list to matrix
 
   df <- merge(pro1_mat, pro2_mat, by = "row.names", all = TRUE);
   df[is.na(df)] <- 0; #replacing NA's with 0
@@ -119,11 +113,13 @@ PlotProteinInteractions <- function(protein1, protein2) {
   return(final_tab);
 }
 
-q <- PlotProteinInteractions("Q9UHB7", "Q9UKV5");
-q
-
 ##############################################################
-# Example GetSimilarPercentage("Q9UHB7", "Q9UKV5");
+# @examples
+# GetSimilarPercentage("Q9UHB7", "Q9UKV5");
+#
+# @return Return a percentage number tells the
+# similarities between selected protein sequences
+
 GetSimilarPercentage <- function(protein1, protein2){
   pro1_seq <- as.character(GetSequences(protein1)$Sequence);
   pro2_seq <- as.character(GetSequences(protein2)$Sequence);
@@ -134,6 +130,7 @@ GetSimilarPercentage <- function(protein1, protein2){
 
   #By using the Levenshtein distance algorithm
   #for measuring the difference between sequences
+
   pro1len <- nchar(pro1_seq);
   pro2len <- nchar(pro2_seq);
 
@@ -174,5 +171,3 @@ GetSimilarPercentage <- function(protein1, protein2){
   #using percent() function from library(scales) to convert decimal to percentage
   return(percent(1-tab_val/max(pro1len, pro2len)));
 }
-p <- GetSimilarPercentage("Q86Y01", "Q9NYG5");
-p
