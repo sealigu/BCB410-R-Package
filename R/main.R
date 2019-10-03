@@ -22,6 +22,7 @@
 citation("UniprotR");
 citation("stringi");
 citation("scales");
+citation("pheatmap");
 library(UniprotR);
 library(stringr);
 library(scales);
@@ -50,6 +51,7 @@ PlotResModification <- function(protein1, protein2) {
                          dimnames = list(as.character(protein2), c(pro2_res)));
 
   # https://stackoverflow.com/questions/5738773/r-how-to-merge-two-matrix-according-to-their-column-and-row-names
+  # authors: Chase and Joris Meys
   # According to above code to merge two matrix together
   # and convert list to matrix
 
@@ -100,6 +102,7 @@ PlotProteinInteractions <- function(protein1, protein2) {
                      dimnames = list(as.character(protein2), c(pro2_sp)));
 
   # https://stackoverflow.com/questions/5738773/r-how-to-merge-two-matrix-according-to-their-column-and-row-names
+  # authors: Chase and Joris Meys
   # According to above code to merge two matrix together
   # and convert list to matrix
 
