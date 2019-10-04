@@ -65,7 +65,7 @@ PlotResModification <- function(protein1, protein2) {
   f <- pheatmap(df, scale = "none", col = col);
   return();
 }
-PlotResModification("Q9UHB7", "Q9UKV5")
+
 
 #################################################################
 # @examples
@@ -116,7 +116,7 @@ PlotProteinInteractions <- function(protein1, protein2) {
   final_tab <- pheatmap(tab, scale = "none", col = col);
   return(final_tab);
 }
-PlotProteinInteractions("Q9UHB7", "Q9UKV5")
+
 
 ##############################################################
 # @examples
@@ -176,5 +176,5 @@ GetSimilarPercentage <- function(protein1, protein2){
   #using percent() function from library(scales) to convert decimal to percentage
   return(percent(1-tab_val/max(pro1len, pro2len)));
 }
-GetSimilarPercentage("Q9UHB7", "Q9UKV5")
+
 
