@@ -9,4 +9,3 @@ Description: During the ubiquitination, analysis the protein-protein interaction
 License: What license is it under?
 Encoding: UTF-8
 LazyData: true
-Depends: R (>= 3.5.1)
