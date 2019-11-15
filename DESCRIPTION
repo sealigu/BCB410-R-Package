@@ -11,5 +11,8 @@ LazyData: true
 Depends: R(>= 3.1.0), nlme
 Imports:
   UniprotR
+License: MIT + file LICENSE
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.1
 Suggests:
   testthat
