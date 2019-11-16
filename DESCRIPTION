@@ -7,7 +7,7 @@ Maintainer: S Tang<shiyun.tang@mail.utoronto.ca>
 Description: During the ubiquitination, analysis the protein-protein interactions and find out the sequence differences
 Encoding: UTF-8
 LazyData: true
-Depends: R(>= 3.1.0), nlme
+Depends: R(>= 3.1.0)
 Imports:
   UniprotR,
   Rcpp,
