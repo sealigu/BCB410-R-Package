@@ -1,15 +1,17 @@
-# This .R file is used to analyze the ubiquitin proteins
-#
-# This function is used to plot a graph that shows all the
-# residue modification positons in the selected protein sequences.
-# Input two interested proteins, the plot will show the modified positon
-# for each selected protein and comparing to see whether these two proteins
-# have the same modified position
-#
-# @param protein1 is the selected protein uniprot id, example "Q86Y01"
-# @param protein2 is the selected protein uniprot id, example "Q9NYG5"
-#
-#
+#' This function is used to plot a graph that shows all the
+#' residue modification positons in the selected protein sequences.
+#' Input two interested proteins, the plot will show the modified positon
+#' for each selected protein and comparing to see whether these two proteins
+#' have the same modified position
+#'
+#' @param  protein1 A protein Uniprot
+#' @param  protein2 A protein Uniprot
+#'
+#' @return Returns a plot to show all the protein residue positions
+#' @examples
+#' PlotResModification("Q9UHB7", "Q9UKV5")
+#'
+
 
 citation("UniprotR");
 citation("stringi");
@@ -19,12 +21,6 @@ library(UniprotR);
 library(stringr);
 library(scales);
 library(pheatmap);
-
-#################################################################
-# @examples
-# PlotResModification("Q9UHB7", "Q9UKV5")
-#
-# @return Returns a plot to show the protein modified position
 
 PlotResModification <- function(protein1, protein2) {
   pro1_r <- as.character(GetPTM_Processsing(protein1)$Modified.residue);

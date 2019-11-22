@@ -1,12 +1,14 @@
-##############################################################
-# This function is used to calculate the similarities between
-# two protein sequences with a percentage output.
-#
-# @examples
-# GetSimilarPercentage("Q9UHB7", "Q9UKV5");
-#
-# @return Return a percentage number tells the
-# similarities between selected protein sequences
+#' This function is used to calculate the similarities between
+#' two protein sequences with a percentage output.
+#'
+#' @param  protein1 A protein Uniprot
+#' @param  protein2 A protein Uniprot
+#'
+#' @return Return a percentage number tells the
+#' similarities between selected protein sequences
+#' @examples
+#' GetSimilarPercentage("Q9UHB7", "Q9UKV5");
+#'
 
 citation("UniprotR");
 citation("stringi");

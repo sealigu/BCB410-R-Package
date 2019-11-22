@@ -1,13 +1,15 @@
-#################################################################
-# This function is used to plot a graph that shows all the
-# interacted proteins with the two input proteins. The output is
-# a graph to show all the interactors and comparing to see whether
-# they have the same interacting proteins.
-#
-# @examples
-# PlotProteinInteractions("Q9UHB7", "Q9UKV5")
-#
-# @return Returns a plot to show all the protein interactors
+#' This function is used to plot a graph that shows all the
+#' interacted proteins with the two input proteins. The output is
+#' a graph to show all the interactors and comparing to see whether
+#' they have the same interacting proteins.
+#'
+#' @param  protein1 A protein Uniprot
+#' @param  protein2 A protein Uniprot
+#'
+#' @return Returns a plot to show all the protein interactors
+#' @examples
+#' PlotProteinInteractions("Q9UHB7", "Q9UKV5")
+#'
 
 citation("UniprotR");
 citation("stringi");
