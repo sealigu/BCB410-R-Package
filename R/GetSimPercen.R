@@ -10,12 +10,13 @@
 #' GetSimilarPercentage("Q9UHB7", "Q9UKV5")
 #'
 #' @name GetSimPercen
-#' @export
+#' @rdname GetSimPercen
 #' @import UniprotR
 #' @import stringi
 #' @import scales
 #' @import pheatmap
 #'
+#' @export
 
 citation("UniprotR");
 citation("stringi");
