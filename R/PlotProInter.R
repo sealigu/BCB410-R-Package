@@ -10,6 +10,11 @@
 #' @examples
 #' PlotProteinInteractions("Q9UHB7", "Q9UKV5")
 #'
+#' @export
+#' @import UniprotR
+#' @import stringi
+#' @import scales
+#' @import pheatmap
 
 citation("UniprotR");
 citation("stringi");

@@ -7,7 +7,13 @@
 #' @return Return a percentage number tells the
 #' similarities between selected protein sequences
 #' @examples
-#' GetSimilarPercentage("Q9UHB7", "Q9UKV5");
+#' GetSimilarPercentage("Q9UHB7", "Q9UKV5")
+#'
+#' @export
+#' @import UniprotR
+#' @import stringi
+#' @import scales
+#' @import pheatmap
 #'
 
 citation("UniprotR");
