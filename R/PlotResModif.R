@@ -11,6 +11,7 @@
 #' @examples
 #' PlotResModification("Q9UHB7", "Q9UKV5")
 #'
+#' @name PlotResModif
 #' @export
 #' @import UniprotR
 #' @import stringi
