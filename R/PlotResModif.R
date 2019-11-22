@@ -22,10 +22,30 @@ citation("UniprotR");
 citation("stringi");
 citation("scales");
 citation("pheatmap");
-library(UniprotR);
-library(stringr);
-library(scales);
-library(pheatmap);
+#library(UniprotR);
+#library(stringr);
+#library(scales);
+#library(pheatmap);
+
+if(!requireNamespace("BiocManager", quietly = TRUE)) {
+  install.packages("BiocManager")
+}
+
+if(!requireNamespace("UniprotR", quietly = TRUE)) {
+  install.packages("UniprotR")
+}
+
+if(!requireNamespace("stringr", quietly = TRUE)) {
+  install.packages("stringr")
+}
+
+if(!requireNamespace("scales", quietly = TRUE)) {
+  install.packages("scales")
+}
+
+if(!requireNamespace("pheatmap", quietly = TRUE)) {
+  install.packages("pheatmap")
+}
 
 PlotResModification <- function(protein1, protein2) {
   pro1_r <- as.character(GetPTM_Processsing(protein1)$Modified.residue);
