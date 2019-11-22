@@ -16,7 +16,6 @@
 #' @import scales
 #' @import pheatmap
 #'
-#' @export
 
 citation("UniprotR");
 citation("stringi");
