@@ -1,4 +1,4 @@
-library(testthat)
+context("Get similar percentage number of two proteins")
 library("UbiquitinAnalysis")
 
 test_that("To test GetSimilarPercentage", {
@@ -10,6 +10,3 @@ test_that("To test GetSimilarPercentage", {
   expect_that(value, is_a("percentage"))
   expect_that(trunc(value), equals("56.8%"))
 })
-
-test_check("UbiquitinAnalysis")
-
