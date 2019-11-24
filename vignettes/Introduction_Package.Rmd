@@ -1,0 +1,23 @@
+---
+title: "Introduction_Package"
+author: "Shiyun Tang"
+date: "November 24, 2019"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Introduction_Package}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include=FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(UbiquitinAnalysis)
+```
+
+
