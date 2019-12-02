@@ -46,7 +46,7 @@ if(!requireNamespace("pheatmap", quietly = TRUE)) {
   install.packages("pheatmap")
 }
 
-GetSimilarPercentage <- function(protein1, protein2){
+GetSimilarPercentage <- function(protein1 = "Q9UHB7", protein2 = "Q9UKV5"){
   pro1_seq <- as.character(GetSequences(protein1)$Sequence);
   pro2_seq <- as.character(GetSequences(protein2)$Sequence);
 
