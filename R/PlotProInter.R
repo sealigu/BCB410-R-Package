@@ -20,10 +20,6 @@ citation("UniprotR");
 citation("stringi");
 citation("scales");
 citation("pheatmap");
-#library(UniprotR);
-#library(stringr);
-#library(scales);
-#library(pheatmap);
 
 if(!requireNamespace("BiocManager", quietly = TRUE)) {
   install.packages("BiocManager")
@@ -44,6 +40,11 @@ if(!requireNamespace("scales", quietly = TRUE)) {
 if(!requireNamespace("pheatmap", quietly = TRUE)) {
   install.packages("pheatmap")
 }
+
+library(UniprotR);
+library(stringr);
+library(scales);
+library(pheatmap);
 
 PlotProteinInteractions <- function(protein1 = "Q9UHB7", protein2 = "Q9UKV5") {
   pro1_obj <- as.character(GetProteinInteractions(protein1)$Interacts.with);
