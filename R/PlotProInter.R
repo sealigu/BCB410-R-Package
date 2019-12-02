@@ -10,7 +10,6 @@
 #' @examples
 #' PlotProteinInteractions("Q9UHB7", "Q9UKV5")
 #'
-#' @export
 #' @name PlotProInter
 #' @import UniprotR
 #' @import stringi
