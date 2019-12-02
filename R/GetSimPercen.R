@@ -48,8 +48,8 @@ library(scales);
 library(pheatmap);
 
 GetSimilarPercentage <- function(protein1 = "Q9UHB7", protein2 = "Q9UKV5"){
-  pro1_seq <- as.character(GetSequences(protein1)$Sequence);
-  pro2_seq <- as.character(GetSequences(protein2)$Sequence);
+  pro1_seq <- as.character(UniprotR::GetSequences(protein1)$Sequence);
+  pro2_seq <- as.character(UniprotR::GetSequences(protein2)$Sequence);
 
   if(identical(pro1_seq, "NA") | identical(pro2_seq, "NA")){
     return("One of the protein sequence is N/A.");

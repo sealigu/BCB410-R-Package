@@ -49,11 +49,11 @@ library(scales);
 library(pheatmap);
 
 PlotResModification <- function(protein1 = "Q9UHB7", protein2 = "Q9UKV5") {
-  pro1_r <- as.character(GetPTM_Processsing(protein1)$Modified.residue);
+  pro1_r <- as.character(UniprotR::GetPTM_Processsing(protein1)$Modified.residue);
   pro1_res <- str_extract_all(pro1_r, regex("\\d+\\s[A-Za-z]."));
   pro1_res <- unlist(pro1_res);
 
-  pro2_r <- as.character(GetPTM_Processsing(protein2)$Modified.residue);
+  pro2_r <- as.character(UniprotR::GetPTM_Processsing(protein2)$Modified.residue);
   pro2_res <- str_extract_all(pro2_r, regex("\\d+\\s[A-Za-z]."));
   pro2_res <- unlist(pro2_res);
 
