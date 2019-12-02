@@ -1,6 +1,6 @@
 library(shiny)
 
-ui <- fluidPange(
+ui <- fluidPage(
   titlePanel("UbiquitinAnalysis: R package for Plotting Protein Relationship"),
 
   sidebarPanel(
