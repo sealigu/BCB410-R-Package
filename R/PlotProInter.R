@@ -46,7 +46,7 @@ library(stringr);
 library(scales);
 library(pheatmap);
 
-PlotProteinInteractions <- function(protein1, protein2) {
+PlotProteinInteractions <- function(protein1 = "Q9UHB7", protein2 = "Q9UKV5") {
   pro1_obj <- as.character(UniprotR::GetProteinInteractions(protein1)$Interacts.with);
   pro2_obj <- as.character(UniprotR::GetProteinInteractions(protein2)$Interacts.with);
 
