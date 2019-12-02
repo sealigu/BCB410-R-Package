@@ -10,11 +10,13 @@
 #' @examples
 #' PlotProteinInteractions("Q9UHB7", "Q9UKV5")
 #'
+#' @export
 #' @name PlotProInter
 #' @import UniprotR
 #' @import stringi
 #' @import scales
 #' @import pheatmap
+#'
 
 citation("UniprotR");
 citation("stringi");
@@ -37,9 +39,14 @@ if(!requireNamespace("scales", quietly = TRUE)) {
   install.packages("scales")
 }
 
+if(!requireNamespace("pheatmap", quietly = TRUE)) {
+  install.packages("pheatmap")
+}
+
 library(UniprotR);
 library(stringr);
 library(scales);
+library(pheatmap);
 
 PlotProteinInteractions <- function(protein1 = "Q9UHB7", protein2 = "Q9UKV5") {
   pro1_obj <- as.character(UniprotR::GetProteinInteractions(protein1)$Interacts.with);
@@ -81,8 +88,8 @@ PlotProteinInteractions <- function(protein1 = "Q9UHB7", protein2 = "Q9UKV5") {
   rownames(tab) <- df[,1];
 
   col<- colorRampPalette(c("white", "blue"))(256);
-  final_tab <- pheatmap(tab, scale = "none", col = col,
+  final_tab <- pheatmap::pheatmap(tab, scale = "none", col = col,
                         cluster_cols = FALSE, cluster_rows = FALSE,
                         legend = FALSE);
-  return(final_tab);
+  return(tab);
 }

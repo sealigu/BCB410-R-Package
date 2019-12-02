@@ -9,6 +9,7 @@
 #' @examples
 #' GetSimilarPercentage("Q9UHB7", "Q9UKV5")
 #'
+#' @export
 #' @name GetSimPercen
 #' @rdname GetSimPercen
 #' @import UniprotR
@@ -20,7 +21,6 @@
 citation("UniprotR");
 citation("stringi");
 citation("scales");
-citation("pheatmap");
 
 if(!requireNamespace("BiocManager", quietly = TRUE)) {
   install.packages("BiocManager")
@@ -38,9 +38,14 @@ if(!requireNamespace("scales", quietly = TRUE)) {
   install.packages("scales")
 }
 
+if(!requireNamespace("pheatmap", quietly = TRUE)) {
+  install.packages("pheatmap")
+}
+
 library(UniprotR);
 library(stringr);
 library(scales);
+library(pheatmap);
 
 GetSimilarPercentage <- function(protein1 = "Q9UHB7", protein2 = "Q9UKV5"){
   pro1_seq <- as.character(UniprotR::GetSequences(protein1)$Sequence);
@@ -91,5 +96,7 @@ GetSimilarPercentage <- function(protein1 = "Q9UHB7", protein2 = "Q9UKV5"){
 
   tab_val <- tab[pro1len+1, pro2len+1];
   #using percent() function from library(scales) to convert decimal to percentage
-  return(percent(1-tab_val/max(pro1len, pro2len)));
+  v <- scales::percent(1-tab_val/max(pro1len, pro2len))
+  return(v);
 }
+

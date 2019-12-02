@@ -11,11 +11,13 @@
 #' @examples
 #' PlotResModification("Q9UHB7", "Q9UKV5")
 #'
+#' @export
 #' @name PlotResModif
 #' @import UniprotR
 #' @import stringi
 #' @import scales
 #' @import pheatmap
+#'
 
 
 citation("UniprotR");
@@ -39,17 +41,22 @@ if(!requireNamespace("scales", quietly = TRUE)) {
   install.packages("scales")
 }
 
+if(!requireNamespace("pheatmap", quietly = TRUE)) {
+  install.packages("pheatmap")
+}
+
 library(UniprotR);
 library(stringr);
 library(scales);
+library(pheatmap);
 
 PlotResModification <- function(protein1 = "Q9UHB7", protein2 = "Q9UKV5") {
   pro1_r <- as.character(UniprotR::GetPTM_Processing(protein1)$Modified.residue);
-  pro1_res <- str_extract_all(pro1_r, regex("\\d+\\s[A-Za-z]."));
+  pro1_res <- stringr::str_extract_all(pro1_r, stringr::regex("\\d+\\s[A-Za-z]."));
   pro1_res <- unlist(pro1_res);
 
   pro2_r <- as.character(UniprotR::GetPTM_Processing(protein2)$Modified.residue);
-  pro2_res <- str_extract_all(pro2_r, regex("\\d+\\s[A-Za-z]."));
+  pro2_res <- stringr::str_extract_all(pro2_r, stringr::regex("\\d+\\s[A-Za-z]."));
   pro2_res <- unlist(pro2_res);
 
   pro1_res_mat <- matrix(1, nrow = 1,
@@ -71,10 +78,10 @@ PlotResModification <- function(protein1 = "Q9UHB7", protein2 = "Q9UKV5") {
   rownames(df) <- tab[,1];
 
   col<- colorRampPalette(c("white", "purple"))(256);
-  f <- pheatmap(df, scale = "none", col = col,
+  f <- pheatmap::pheatmap(df, scale = "none", col = col,
                 cluster_cols = FALSE, cluster_rows = FALSE,
                 legend = FALSE);
-  return(f);
+  return(df);
 }
 
 
