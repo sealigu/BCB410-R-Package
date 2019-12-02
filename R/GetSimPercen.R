@@ -47,7 +47,7 @@ library(stringr);
 library(scales);
 library(pheatmap);
 
-GetSimilarPercentage <- function(protein1 = "Q9UHB7", protein2 = "Q9UKV5"){
+GetSimilarPercentage <- function(protein1, protein2){
   pro1_seq <- as.character(UniprotR::GetSequences(protein1)$Sequence);
   pro2_seq <- as.character(UniprotR::GetSequences(protein2)$Sequence);
 
