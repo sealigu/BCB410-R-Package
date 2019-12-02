@@ -4,14 +4,22 @@
 The goal of Ubiquitin Analysis is to analysis the relationships between two different ubiquitin proteins.
 
 ## Installation
-
+To install the latest version of the package:
 ``` r
 require("devtools")
 install_github("sealigu/UbiquitinAnalysis")
 library("UbiquitinAnalysis"")
 ```
+To run the shinyApp:
+```r
+UbiquitinAnalysis::runUA()
+```
 
 ## Overview
+```r
+browseVignettes("UbiquitinAnalysis")
+```
+This package contains 4 functions to demonstrate components of a simple R package.
 
 ### Function 1: PlotResModification()
 ![](./inst/pic/Res._Modification_Example.png)
@@ -35,6 +43,8 @@ Input two selected protein uniprot id (e.g. "Q9UHB7" and "Q9UKV5"), the output i
 ## Example
 ``` r
 library(Ubiquitin Analysis);
+lsf.str("package:UbiquitinAnalysis");
+
 PlotResModification("Q9UHB7", "Q9UKV5");
 PlotProteinInteractions("Q9UHB7", "Q9UKV5");
 GetSimilarPercentage("Q9UHB7", "Q9UKV5");
@@ -51,3 +61,5 @@ The function GetSimilarPercentage was authored by Shiyun. The Levenshtein distan
 - library(UniprotR)
 
 The library UniprotR was used to retrieve data from UniProt services.
+
+## References
