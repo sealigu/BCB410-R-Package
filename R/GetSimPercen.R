@@ -9,7 +9,7 @@
 #' @examples
 #' GetSimilarPercentage("Q9UHB7", "Q9UKV5")
 #'
-#' @exportClass
+#' @export
 #' @name GetSimPercen
 #' @rdname GetSimPercen
 #' @import UniprotR
