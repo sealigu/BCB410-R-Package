@@ -50,6 +50,8 @@ library(scales);
 library(pheatmap);
 
 PlotResModification <- function(protein1 = "Q9UHB7", protein2 = "Q9UKV5") {
+  protein1 <- toString(protein1)
+  protein2 <- toString(protein2)
   pro1_r <- as.character(UniprotR::GetPTM_Processing(protein1)$Modified.residue);
   pro1_res <- stringr::str_extract_all(pro1_r, stringr::regex("\\d+\\s[A-Za-z]."));
   pro1_res <- unlist(pro1_res);
@@ -78,8 +80,7 @@ PlotResModification <- function(protein1 = "Q9UHB7", protein2 = "Q9UKV5") {
 
   col<- colorRampPalette(c("white", "purple"))(256);
   f <- pheatmap::pheatmap(df, scale = "none", col = col,
-                cluster_cols = FALSE, cluster_rows = FALSE,
-                legend = FALSE);
+                cluster_cols = FALSE, cluster_rows = FALSE);
   return(df);
 }
 

@@ -48,6 +48,8 @@ library(scales);
 library(pheatmap);
 
 PlotProteinInteractions <- function(protein1 = "Q9UHB7", protein2 = "Q9UKV5") {
+  protein1 <- toString(protein1)
+  protein2 <- toString(protein2)
   pro1_obj <- as.character(UniprotR::GetProteinInteractions(protein1)$Interacts.with);
   pro2_obj <- as.character(UniprotR::GetProteinInteractions(protein2)$Interacts.with);
 
@@ -88,7 +90,7 @@ PlotProteinInteractions <- function(protein1 = "Q9UHB7", protein2 = "Q9UKV5") {
 
   col<- colorRampPalette(c("white", "blue"))(256);
   final_tab <- pheatmap::pheatmap(tab, scale = "none", col = col,
-                        cluster_cols = FALSE, cluster_rows = FALSE,
-                        legend = FALSE);
+                        cluster_cols = FALSE, cluster_rows = FALSE);
+  print(typeof(tab))
   return(tab);
 }
