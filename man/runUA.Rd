@@ -17,5 +17,4 @@ The code has been placed in \code{./inst/shiny-scripts}.
 \dontrun{
 runUA()
 }
-
 }
