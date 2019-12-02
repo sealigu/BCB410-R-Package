@@ -38,14 +38,9 @@ if(!requireNamespace("scales", quietly = TRUE)) {
   install.packages("scales")
 }
 
-if(!requireNamespace("pheatmap", quietly = TRUE)) {
-  install.packages("pheatmap")
-}
-
 library(UniprotR);
 library(stringr);
 library(scales);
-library(pheatmap);
 
 GetSimilarPercentage <- function(protein1 = "Q9UHB7", protein2 = "Q9UKV5"){
   pro1_seq <- as.character(UniprotR::GetSequences(protein1)$Sequence);

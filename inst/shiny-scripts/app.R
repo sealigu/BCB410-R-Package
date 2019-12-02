@@ -15,7 +15,7 @@ ui <- fluidPage(
       ),
       mainPanel(
 #        imageOutput("plotgraph", width = 500, height = 400),
-#        imageOutput("plot1", width = "100%", height = "400px"),
+        imageOutput("plot1", width = "100%", height = "400px"),
         imageOutput("plot2", width = "100%", height = "400px"),
         verbatimTextOutput("percentage")
       )

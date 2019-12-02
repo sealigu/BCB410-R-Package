@@ -39,14 +39,9 @@ if(!requireNamespace("scales", quietly = TRUE)) {
   install.packages("scales")
 }
 
-if(!requireNamespace("pheatmap", quietly = TRUE)) {
-  install.packages("pheatmap")
-}
-
 library(UniprotR);
 library(stringr);
 library(scales);
-library(pheatmap);
 
 PlotResModification <- function(protein1 = "Q9UHB7", protein2 = "Q9UKV5") {
   pro1_r <- as.character(UniprotR::GetPTM_Processing(protein1)$Modified.residue);
@@ -76,7 +71,9 @@ PlotResModification <- function(protein1 = "Q9UHB7", protein2 = "Q9UKV5") {
   rownames(df) <- tab[,1];
 
   col<- colorRampPalette(c("white", "purple"))(256);
-  f <- pheatmap(df, scale = "none", col = col);
+  f <- pheatmap(df, scale = "none", col = col,
+                cluster_cols = FALSE, cluster_rows = FALSE,
+                legend = FALSE);
   return(f);
 }
 
