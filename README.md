@@ -8,7 +8,7 @@ To install the latest version of the package:
 ``` r
 require("devtools")
 install_github("sealigu/UbiquitinAnalysis")
-library("UbiquitinAnalysis"")
+library("UbiquitinAnalysis")
 ```
 To run the shinyApp:
 ```r
