@@ -71,3 +71,5 @@ The function GetSimilarPercentage was authored by Shiyun. The Levenshtein distan
 The library UniprotR was used to retrieve data from UniProt services.
 
 ## References
+1. Package UniprotR: Retrieving Information of Proteins from Uniprot 
+https://cran.r-project.org/web/packages/UniprotR/index.html
