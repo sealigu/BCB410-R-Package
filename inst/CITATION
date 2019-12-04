@@ -1,0 +1,12 @@
+citHeader("To cite UbiquitinAnalysis in publications use:")
+
+citEntry(
+  entry    = "Unpublished",
+  title    = "UbiquitinAnalysis: Ploting Protein Relationships",
+  author   = "Shiyun Tang",
+  year     = "2019",
+  note     = "Unpublished",
+  textVersion = paste(
+
+  )
+)
